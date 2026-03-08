@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Duck Mail</title>
     <link rel="stylesheet" href="https://unpkg.com/98.css">
-    <link rel="icon" href="../assets/favicon.png" type="image/png">
+    <link rel="icon" href="assets/favicon.png" type="image/png">
 </head>
 <body style="background-color:#008080">
 
@@ -20,6 +20,21 @@
     <p>This is where the main stuff goes</p>
   </div>
 </div>
+
+<br>
+
+<form action="/submit" method="POST">
+  <div class="field-row">
+    <label for="text">First Name</label>
+    <input id="text" name="text" type="text"/>
+    <label for="text1">Last Name</label>
+    <input id="text1" name="text1" type="text"/>
+    <input id="submitBtn" type="submit" value="Send"/>
+  </div>
+</form>
+
+<audio id="duckSound" src="assets/duck.mp3"></audio>
+<script src="client.js"></script>
 
 </body>
 </html>
