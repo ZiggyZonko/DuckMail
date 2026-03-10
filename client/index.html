@@ -7,34 +7,50 @@
     <link rel="stylesheet" href="https://unpkg.com/98.css">
     <link rel="icon" href="assets/favicon.png" type="image/png">
 </head>
-<body style="background-color:#008080">
+<body style="background-color:#008080; padding: 20px; font-family: 'MS Sans Serif', Arial, sans-serif;">
 
-<div class="window" style="width: 300px">
+  <img src="assets/favicon.png" alt="logo" style="display: block; margin: 0 auto 20px; width: 64px; height: 64px;">
+
+<div class="window" style="width: 350px; margin: 0 auto;">
   <div class="title-bar">
-    <div class="title-bar-text">Duck Mail</div>
+    <div class="title-bar-text">Duck Mail - Login</div>
     <div class="title-bar-controls">
+      <button aria-label="Minimize"></button>
+      <button aria-label="Maximize"></button>
       <button aria-label="Close"></button>
     </div>
   </div>
+  
   <div class="window-body">
-    <p>This is where the main stuff goes</p>
+    <p>Enter your credentials to access your mailbox.</p>
+    
+    <form action="/submit" method="POST">
+      <div class="field-row-stacked" style="width: 280px">
+        <label for="email">Email Address</label>
+        <input id="email" name="email" type="email" placeholder="quack@example.com" required />
+      </div>
+
+      <div class="field-row-stacked" style="width: 280px; margin-top: 10px;">
+        <label for="password">Password</label>
+        <input id="password" name="password" type="password" required />
+      </div>
+
+      <div class="field-row" style="justify-content: flex-end; margin-top: 20px;">
+        <button id="submitBtn" type="submit">OK</button>
+        <button type="button" onclick="close_window()">Cancel</button>
+      </div>
+    </form>
+  </div>
+
+  <div class="status-bar">
+    <p class="status-bar-field">Press OK to continue</p>
+    <p class="status-bar-field">CPU Usage: 2%</p>
   </div>
 </div>
 
-<br>
-
-<form action="/submit" method="POST">
-  <div class="field-row">
-    <label for="text">First Name</label>
-    <input id="text" name="text" type="text"/>
-    <label for="text1">Last Name</label>
-    <input id="text1" name="text1" type="text"/>
-    <input id="submitBtn" type="submit" value="Send"/>
-  </div>
-</form>
-
 <audio id="duckSound" src="assets/duck.mp3"></audio>
-<script src="client.js"></script>
+<script src="js/client.js"></script>
+<script src="js/closewindow.js"></script>
 
 </body>
 </html>

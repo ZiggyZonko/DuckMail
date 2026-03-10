@@ -1,0 +1,8 @@
+.logo {
+  position: fixed; /* Stays in the same place relative to the browser window */
+  top: 0;          /* Aligns to the top edge */
+  left: 0;         /* Aligns to the left edge */
+  width: 50px;     /* Makes the image small, adjust as needed */
+  height: auto;    /* Maintains the image's aspect ratio */
+  margin: 10px;    /* Optional: Adds a small space around the image */
+}
