@@ -1,14 +1,16 @@
 const mongoose = require('mongoose');
 const bcrypt = require('bcrypt');
+const User = require('./models/User');
 
 mongoose.connect('mongodb://127.0.0.1:27017/duckmail');
 
-const User = mongoose.model('User', {
-  username: String,
-  password: String
-});
-
 async function createUser(username, plainPassword) {
+  const existingUser = await User.findOne({ username });
+
+  if (existingUser) {
+      throw new Error("User already exists");
+  }
+
   const hashedPassword = await bcrypt.hash(plainPassword, 10);
 
   const user = new User({
@@ -22,4 +24,4 @@ async function createUser(username, plainPassword) {
   mongoose.disconnect();
 }
 
-createUser("RichardDuck", "iloveducks");
+module.exports = createUser;

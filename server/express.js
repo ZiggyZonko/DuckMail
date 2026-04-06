@@ -2,6 +2,9 @@ const express = require('express');
 const path = require('path');
 const bcrypt = require('bcrypt');
 
+const createUser = require('./createuser');
+const User = require('./models/User');
+
 const app = express();
 const port = 5503;
 
@@ -10,12 +13,7 @@ const mongoose = require('mongoose');
 mongoose.connect('mongodb://127.0.0.1:27017/duckmail')
   .then(() => console.log("Connected to MongoDB 🦆"))
   .catch(err => console.log(err));
-
-const User = mongoose.model('User', {
-  username: String,
-  password: String
-});
-
+  
 app.use(express.static('../client'));
 app.use(express.urlencoded({ extended: true }));
 
@@ -39,6 +37,24 @@ app.post("/login", async (req, res) => {
     }
 
     res.send("Welcome " + username + " 🦆");
+});
+
+app.post("/signup", async (req, res) => {
+    const { username, password } = req.body;
+
+    try {
+        await createUser(username, password);
+
+        res.send("Signup successful 🦆");
+
+    } catch (err) {
+        if (err.message === "User already exists") {
+            return res.send("User already exists");
+        }
+
+        console.log(err);
+        res.status(500).send("Error creating user");
+    }
 });
 
 app.listen(port, () => {
