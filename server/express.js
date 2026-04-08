@@ -18,7 +18,7 @@ app.use(express.static('../client'));
 app.use(express.urlencoded({ extended: true }));
 
 app.set('view engine', 'ejs');
-app.set('views', '../client'); // Tell Express where your files are
+app.set('views', '../client')
 
 app.post("/login", async (req, res) => {
     const username = req.body.username;
@@ -36,7 +36,7 @@ app.post("/login", async (req, res) => {
         return res.send("Invalid username or password");
     }
 
-    res.send("Welcome " + username + " 🦆");
+    res.render('home', { username: username });
 });
 
 app.post("/signup", async (req, res) => {
@@ -61,4 +61,3 @@ app.listen(port, () => {
   console.log(`Server running at http://localhost:${port}`);
   console.log("Press Ctrl+C to stop the server.");
 });
-

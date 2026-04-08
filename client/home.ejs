@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0
+">
+    <title>Duck Mail</title>
+    <link rel="stylesheet" href="https://unpkg.com/98.css">
+    <link rel="icon" href="assets/favicon.png" type="image/png">
+    <link rel="stylesheet" href="css/home.css">
+    </head>
+    <body style="background-color:#008080; padding: 20px; font-family: 'MS Sans Serif', Arial, sans-serif;">
+    <img src="assets/favicon.png" alt="logo" style="display: block; margin: 0 auto 20px; width: 64px; height: 64px;">
+    <div class="window" style="width: 1000px; margin: 0 auto;">
+        <div class="title-bar">
+            <div class="title-bar-text"><%= username %> - Home</div>
+            <div class="title-bar-controls">
+                <button aria-label="Minimize"></button>
+                <button aria-label="Maximize"></button>
+                <button aria-label="Close"></button>
+            </div>
+        </div>
+
+        <div class="window-body">
+            <p>Welcome to your Duck Mail inbox! This is where you'll find all your quacks and messages from fellow ducks. Stay tuned for updates and new features coming soon!</p>
+        </div>
+
+        <button style="margin-left: 10px;margin-right: 10px;">New Email</button>
+        <button style="margin-right: 10px;">Reply</button>
+        <button style="margin-right: 10px;">Forward</button>
+        <button style="margin-right: 10px;">Delete</button>
+        <button style="margin-right: 10px;">Mark as Read</button>
+        <button style="margin-right: 10px;">Mark as Unread</button>
+
+    <div class="sunken-panel" style="height: 300px; margin: 20px;">
+    <table class="interactive" style="width: 100%; border-collapse: collapse;">
+        <thead>
+        <tr>
+            <th>Sender</th>
+            <th>Subject</th>
+            <th>Date</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>Duck Mail</td>
+            <td>Example Email from DuckMail!</td>
+            <td>Insert Time Here</td>
+        </tr>
+        </tbody>
+    </table>
+    </div>
+
+        <div class="status-bar">
+            <p class="status-bar-field">CPU Usage: 1%</p>
+        </div>
+    </div>
+
+    <p style="text-align: center; margin-top: 20px; color: #fff;">© 2026 Duck Mail Inc. All rights reserved.</p>
+    <audio id="duckSound" src="assets/duck.mp3"></audio>
+    <script src="js/client.js"></script>
+    <script src="js/email.js"></script>
+
+</html>
