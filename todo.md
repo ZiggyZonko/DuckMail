@@ -1,0 +1,3 @@
+--> Topbar with panel view selection
+--> Dragging of the panels around the screen.
+--> Implement Quack sound on the delete button.
